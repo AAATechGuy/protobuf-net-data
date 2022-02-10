@@ -2,8 +2,8 @@
 
 using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
+using Microsoft.Data.SqlClient;
 
 namespace ProtoBuf.Data.Tests
 {
@@ -75,7 +75,7 @@ namespace ProtoBuf.Data.Tests
 
             var connectionString = new SqlConnectionStringBuilder
             {
-                DataSource = @".\SQLEXPRESS",
+                DataSource = @"(LocalDB)\MSSQLLocalDB",
                 InitialCatalog = "AdventureWorksDW2008R2",
                 IntegratedSecurity = true
             };

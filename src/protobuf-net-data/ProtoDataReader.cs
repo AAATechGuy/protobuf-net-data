@@ -35,7 +35,9 @@ namespace ProtoBuf.Data
             }
 
             this.stream = stream;
-            this.reader = new ProtoReader(stream, null, null);
+#pragma warning disable 612, 618
+            this.reader = ProtoReader.Create(stream, null, null);
+#pragma warning restore 612, 618
             this.context = new ProtoReaderContext(this.reader);
 
             ResultReader.ReadResult(this.context);

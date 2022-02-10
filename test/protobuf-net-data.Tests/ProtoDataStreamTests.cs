@@ -167,8 +167,6 @@ namespace ProtoBuf.Data.Tests
                 this.stream.Read(buffer, 0, buffer.Length);
                 this.stream.Read(buffer, 0, buffer.Length);
                 this.stream.Read(buffer, 0, buffer.Length);
-
-                this.stream.Dispose();
             }
 
             [Fact]

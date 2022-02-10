@@ -18,7 +18,7 @@ namespace ProtoBuf.Data.Tests
                 // Arrange
                 var stream = new MemoryStream();
 
-                using (var writer = new ProtoWriter(stream, null, null))
+                using (var writer = ProtoWriter.Create(stream, null, null))
                 {
                     ProtoWriter.WriteFieldHeader(1, WireType.StartGroup, writer);
 
@@ -39,7 +39,7 @@ namespace ProtoBuf.Data.Tests
                 // Arrange
                 var stream = new MemoryStream();
 
-                using (var writer = new ProtoWriter(stream, null, null))
+                using (var writer = ProtoWriter.Create(stream, null, null))
                 {
                     ProtoWriter.WriteFieldHeader(1, WireType.StartGroup, writer);
 
@@ -55,6 +55,8 @@ namespace ProtoBuf.Data.Tests
                     ProtoWriter.EndSubItem(columnToken, writer);
 
                     ProtoWriter.EndSubItem(resultToken, writer);
+
+                    writer.Close();
                 }
 
                 stream.Position = 0;
@@ -69,7 +71,7 @@ namespace ProtoBuf.Data.Tests
                 // Arrange
                 var stream = new MemoryStream();
 
-                using (var writer = new ProtoWriter(stream, null, null))
+                using (var writer = ProtoWriter.Create(stream, null, null))
                 {
                     ProtoWriter.WriteFieldHeader(1, WireType.StartGroup, writer);
 
@@ -101,7 +103,7 @@ namespace ProtoBuf.Data.Tests
                 // Arrange
                 var stream = new MemoryStream();
 
-                using (var writer = new ProtoWriter(stream, null, null))
+                using (var writer = ProtoWriter.Create(stream, null, null))
                 {
                     ProtoWriter.WriteFieldHeader(1, WireType.StartGroup, writer);
 
@@ -121,6 +123,8 @@ namespace ProtoBuf.Data.Tests
                     ProtoWriter.EndSubItem(columnToken, writer);
 
                     ProtoWriter.EndSubItem(resultToken, writer);
+
+                    writer.Close();
                 }
 
                 stream.Position = 0;
