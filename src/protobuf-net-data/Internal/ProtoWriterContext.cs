@@ -22,12 +22,16 @@ namespace ProtoBuf.Data.Internal
 
         public void StartSubItem(object instance)
         {
+#pragma warning disable 612, 618
             this.subItemTokens.Push(ProtoWriter.StartSubItem(instance, this.Writer));
+#pragma warning restore 612, 618
         }
 
         public void EndSubItem()
         {
+#pragma warning disable 612, 618
             ProtoWriter.EndSubItem(this.subItemTokens.Pop(), this.Writer);
+#pragma warning restore 612, 618
         }
     }
 }

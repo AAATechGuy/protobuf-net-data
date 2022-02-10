@@ -134,7 +134,9 @@ namespace ProtoBuf.Data
 
             this.resultIndex = 0;
             this.bufferStream = new CircularStream(bufferSize);
-            this.writer = new ProtoWriter(this.bufferStream, null, null);
+#pragma warning disable 612, 618
+            this.writer = ProtoWriter.Create(this.bufferStream, null, null);
+#pragma warning restore 612, 618
             this.context = new ProtoWriterContext(this.writer, this.options);
         }
 
@@ -284,6 +286,14 @@ namespace ProtoBuf.Data
 
                     if (this.writer != null)
                     {
+                        try
+                        {
+                            this.writer.Close();
+                        }
+                        catch
+                        {
+                        }
+
                         ((IDisposable)this.writer).Dispose();
                         this.writer = null;
                     }
